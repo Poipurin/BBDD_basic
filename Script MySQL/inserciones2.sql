@@ -62,3 +62,32 @@ SELECT d.id, d.nombre, d.apellido
 FROM directivos d
 WHERE d.apellido LIKE '%o%'
 and d.nombre LIKE '%e%';
+
+-- crear tabla
+CREATE TABLE curso (
+id INT NOT NULL AUTO_INCREMENT,
+nombre varchar(100) NOT NULL,
+cantidad_alumnos int not null,
+especialidad varchar (100) not null,
+primary key (id)
+);
+-- insertar en la tabla
+INSERT INTO curso (nombre, cantidad_alumnos, especialidad)
+VALUES ("Cohorte 1",30,"Java") , ("Cohorte 2",34,"Java") , ("Cohorte 3",30,"Java");
+
+select * from curso;
+-- agregar fk a estudiante
+-- creacion de columna
+ALTER TABLE estudiantes 
+add cursoId INT;
+
+-- relacionen las tablas
+ALTER TABLE estudiantes 
+ADD FOREIGN KEY(cursoId) REFERENCES curso (id); 
+
+-- crear registros con fk
+
+insert into estudiantes (nombre,apellido,cursoId)
+values ("Bárbara", "Pino", 2),("Poi", "Purin", 2),("Elce", "Pillo", 1),("Lap", "Illa", 3);
+
+select * from estudiantes
