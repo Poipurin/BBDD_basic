@@ -33,7 +33,7 @@ TRUNCATE TABLE directivos;
 	
 -- Mostrar columnas específicas
 
-SELECT nombre, id 
+SELECT nombre, id   
 from directivos;
 
 -- alias
@@ -90,4 +90,4 @@ ADD FOREIGN KEY(cursoId) REFERENCES curso (id);
 insert into estudiantes (nombre,apellido,cursoId)
 values ("Bárbara", "Pino", 2),("Poi", "Purin", 2),("Elce", "Pillo", 1),("Lap", "Illa", 3);
 
-select * from estudiantes
+select * from curso
